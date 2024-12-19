@@ -24,8 +24,14 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run build
-      run: npm run build
-
     - name: Run tests
       run: npm test
+    
+    - name: Login to Heroku
+      uses: akshnz/heroku-login-action@v1
+      with:
+        heroku_email: ${{ secrets.HEROKU_EMAIL }}
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+    
+    - name: Deploy to Heroku
+      run: git push https://git.heroku.com/cicd-github-actions.git HEAD:main
