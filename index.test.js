@@ -1,5 +1,14 @@
 const request = require('supertest');
 const app = require('./index');
+const server = app.listen(3000);
+
+beforeAll(() => {
+  
+});
+
+afterAll(() => {
+  server.close();
+});
 
 describe('GET /', () => {
   it('should return status 200', async () => {
