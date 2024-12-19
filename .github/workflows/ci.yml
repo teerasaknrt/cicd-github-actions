@@ -27,5 +27,8 @@ jobs:
     - name: Run tests
       run: echo "No tests specified"
 
+    - name: Run tests
+      run: npm test
+
     - name: Build and start application
       run: node index.js
