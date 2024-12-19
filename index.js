@@ -5,10 +5,12 @@ app.get("/", (req, res) => {
   res.send("Hello, DevOps!");
 });
 
+const port = process.env.PORT || 3000;
+
 if (process.env.NODE_ENV !== "test") {
-  app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-  });
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
 }
 
 module.exports = app;
